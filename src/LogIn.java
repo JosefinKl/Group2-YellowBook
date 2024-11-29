@@ -19,17 +19,20 @@ public class LogIn {
                 break;
 
             }else if(choice.equalsIgnoreCase("A")) {
-
+                AdministratorList a = new AdministratorList();
+                a.setAdminList();
                 while(true){
                     System.out.println("Add User Name");
                     Scanner sc1 = new Scanner(System.in);
                     String name = sc1.nextLine();
-                    if (name.equals("xxx")) {  //is part of list of admins
+
+                    if (a.isAdmin(name)){
+                              //is part of list of admins
                         while(true) {
                             System.out.println("Add Password");
                             Scanner sc2 = new Scanner(System.in);
                             String password = sc2.nextLine();
-                            if (password.equals("xx")) { //Equals
+                            if (a.isAdminPassword(password)) { //Equals
                                 user = "Admin";
                                 System.out.println("You are logged in.");
                                 return;

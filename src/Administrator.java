@@ -7,7 +7,13 @@ public class Administrator {
         this.name = name;
         this.password = password;
     }
+    public String getName() {
+        return name;
+    }
 
+    public int getPassword() {
+        return password;
+    }
     }
 
 
