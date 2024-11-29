@@ -6,17 +6,20 @@ public class LogIn {
     public LogIn() {
     }
 
+    String user;
     public void StartLogIn(){
         while(true){
         System.out.println("Do you want to continue as Guest (G) or Admin (A)?");
         Scanner sc = new Scanner(System.in);
         String choice = sc.nextLine();
 
-            if(choice.equals("G")){
+            if(choice.equalsIgnoreCase("G")){
+                user = "Guest";
                 System.out.println("Guest");
                 break;
 
-            }else if(choice.equals("A")) {
+            }else if(choice.equalsIgnoreCase("A")) {
+
                 while(true){
                     System.out.println("Add User Name");
                     Scanner sc1 = new Scanner(System.in);
@@ -27,6 +30,7 @@ public class LogIn {
                             Scanner sc2 = new Scanner(System.in);
                             String password = sc2.nextLine();
                             if (password.equals("xx")) { //Equals
+                                user = "Admin";
                                 System.out.println("You are logged in.");
                                 return;
                             } else {
@@ -45,7 +49,7 @@ public class LogIn {
         }
     }
 
-    List<String> adminlist = new ArrayList<String>();
+
 
 
 }
