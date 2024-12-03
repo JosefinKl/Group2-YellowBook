@@ -16,6 +16,7 @@ public class LogIn {
             if(choice.equalsIgnoreCase("G")){
                 user = "Guest";
                 System.out.println("Guest");
+                Search search = new Search();
                 break;
 
             }else if(choice.equalsIgnoreCase("A")) {
