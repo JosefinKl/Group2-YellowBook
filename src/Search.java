@@ -34,6 +34,8 @@ public class Search {
                 System.out.println("What to search for:");
                 Scanner sc = new Scanner(System.in);
                 String input = sc.nextLine();
+                pb.SearchAll(input);
+                return;
 
             } else if (choice.equalsIgnoreCase("C")) {
                 break;
