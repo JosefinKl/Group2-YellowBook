@@ -6,6 +6,7 @@ public class Main {
 
         LogIn logIn = new LogIn();
         logIn.StartLogIn();
+        new PhoneBook();
 
 
     }
