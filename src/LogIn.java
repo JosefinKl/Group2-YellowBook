@@ -48,25 +48,7 @@ public class LogIn {
                             if (a.isAdminPassword(password)) { //Equals
                                 user = "Admin";
                                 System.out.println("You are logged in.");
-                                while(true) {
-                                    System.out.println("What to do next? (S - new search, E - edit in phonebook, " +
-                                            "D - delete person in phonebook, A - add person in phoneboook, Quit - quit)");
-                                    String newInput = sc2.nextLine();
-                                    if(newInput.equalsIgnoreCase("S")) {
-                                        Search search1 = new Search();
-                                    }else if (newInput.equalsIgnoreCase("E")) {
-                                        //TODO run editfunction
-                                    }else if (newInput.equalsIgnoreCase("D")) {
-                                        //TODO run Deletefunction
-                                    }else if (newInput.equalsIgnoreCase("A")) {
-                                        //TODO run addfunction
-                                    }else if (newInput.equalsIgnoreCase("Quit")) {
-                                        break;
-                                    }else {
-                                     System.out.println("Invalid input");
-                                    }
-                                }
-
+                                adminMenu();
                                 return;
                             } else {
                                 System.out.println("Incorrect Password");
@@ -84,6 +66,87 @@ public class LogIn {
         }
     }
 
+    private void adminMenu() {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\nAdmin Menu:");
+            System.out.println("1. View all profiles");
+
+            System.out.println("2. Edit an existing profile");
+            System.out.println("3. Delete an existing profile");
+            System.out.println("4. Add a profile");
+
+            System.out.println("5. Logout");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // Consume newline
+            PhoneBook phoneBook = new PhoneBook();
+
+            switch (choice) {
+                case 1: // View all profiles
+                    System.out.println("List of profiles:");
+                    // Print out the entire list
+                    System.out.println("\nLista över alla personer:");
+
+
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+                    break;
+
+                case 2: // Edit an existing profile
+                    System.out.println("\nLista över alla personer:");
+
+
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+
+                    System.out.println("Write ID for person to edit:");
+                    Integer id = sc.nextInt();
+                    PhoneBook pb = new PhoneBook();
+                    PersonClass person = pb.SearchID(id);
+                    EditClass editClass = new EditClass(person);
+                    editClass.editPerson();
+                    break;
+
+                case 3:
+                    System.out.println("\nDelete an existing profile");
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+
+                    System.out.println("Write ID for person to edit:");
+                    Integer id2 = sc.nextInt();
+                    PhoneBook pb2 = new PhoneBook();
+                    PersonClass person2 = pb2.SearchID(id2);
+                    //Add delete function
+
+                case 4:
+                    System.out.println("\nDelete an existing profile");
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+
+                    System.out.println("Write ID for person to edit:");
+                    Integer id3 = sc.nextInt();
+                    PhoneBook pb3 = new PhoneBook();
+                    PersonClass person3 = pb3.SearchID(id3);
+                    //Add add function
+                case 5: // Logout
+                    System.out.println("Logging out...");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
 
 
 

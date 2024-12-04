@@ -3,19 +3,41 @@ import java.util.List;
 
 public class PhoneBook {
     List<PersonClass> PhoneBookList = new ArrayList<PersonClass>();
+    public List<PersonClass> getPhoneBook() {
+        return PhoneBookList;
+    }
     public PhoneBook() {
-        PersonClass person1 = new PersonClass("Adam", "Andersson",
-                new ArrayList<Telephone>(123),
+        List<Telephone> phoneNumbers = new ArrayList<>();
+        phoneNumbers.add(new Telephone(46, 730721234));
+        phoneNumbers.add(new Telephone(46, 704211234));
+
+        List<Telephone> phoneNumbers2 = new ArrayList<>();
+        phoneNumbers2.add(new Telephone(46, 730721884));
+
+        List<Telephone> phoneNumbers3 = new ArrayList<>();
+        phoneNumbers3.add(new Telephone(46, 730729984));
+
+
+        PersonClass person1 = new PersonClass(1,"Adam", "Andersson",
+                phoneNumbers,
                 new Address("Nyponvägen","21A","Karlstad",12345),
                 20 );
-        PersonClass person2 = new PersonClass("Eva", "Pettersson",
-                new ArrayList<Telephone>(123),
+        PersonClass person2 = new PersonClass(2,"Eva", "Pettersson",
+                phoneNumbers2,
                 new Address("Skogsvägen","25","Karlstad",12345),
                 20 );
+        PersonClass person3 = new PersonClass(3,"John", "Doe",
+                phoneNumbers3,
+                new Address("Elm Street", "13B", "Springfield", 54321),
+                25);
+
+
+
         PhoneBookList.add(person1);
 
         PhoneBookList.add(person2);
 
+        PhoneBookList.add(person3);
     }
     List<PersonClass> searchResult = new ArrayList<>();
 
@@ -50,6 +72,16 @@ public class PhoneBook {
         }
         System.out.println(searchResult);
         return searchResult;
+    }
+    public PersonClass SearchID (Integer id){
+        searchResult.clear();
+        for (PersonClass person : PhoneBookList) {
+            if(person.getId().equals(id)){
+                return person;
+            }
+        }
+        return null;
+
     }
     public List<PersonClass> SearchAll(String name){
         searchResult.clear();
