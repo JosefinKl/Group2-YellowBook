@@ -70,8 +70,8 @@ public class LogIn {
 
     private void adminMenu(PhoneBook phoneBook, List<PersonClass> phonebooklist) {
         Scanner sc = new Scanner(System.in);
-
-        while (true) {
+        boolean running = true;
+        while (running) {
             System.out.println("\nAdmin Menu:");
             System.out.println("1. View all profiles");
 
@@ -79,7 +79,7 @@ public class LogIn {
             System.out.println("3. Delete an existing profile");
             System.out.println("4. Add a profile");
 
-            System.out.println("5. Logout");
+            System.out.println("5. Quit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // Consume newline
@@ -162,10 +162,12 @@ public class LogIn {
                         System.out.println(p);
                         System.out.println("-------------------------");
                     }
-                    //Add add function
-                case 5: // Logout
-                    System.out.println("Logging out...");
-                    return;
+                    break;
+
+                case 5: // Quit
+                    System.out.println("Quit");
+                    running=false;
+                    break;
 
                 default:
                     System.out.println("Invalid choice. Please try again.");
