@@ -1,6 +1,8 @@
+ import java.io.Serializable;
  import java.util.List;
 
-public class PersonClass {
+public class PersonClass implements Serializable{
+    private static final long serialVersionUID = 6544567145938392484L;
     private Integer id;
     private String firstName;
     private String lastName;
