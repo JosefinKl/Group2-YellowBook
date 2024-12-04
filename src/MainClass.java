@@ -5,9 +5,14 @@ import java.util.Scanner;
 public class MainClass {
     public static void main(String[] args) {
         PhoneBook phoneBook = new PhoneBook();
+
+        phoneBook.loadPhoneBookFromFile();
         List<PersonClass> phonebooklist = phoneBook.getPhoneBook();
         LogIn logIn = new LogIn();
         logIn.StartLogIn(phoneBook, phonebooklist);
+
+        phoneBook.savePhoneBookToFile();
+
 
 
 

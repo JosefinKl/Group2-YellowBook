@@ -1,4 +1,7 @@
-public class Telephone {
+import java.io.Serializable;
+
+public class Telephone implements Serializable{
+    private static final long serialVersionUID = 6544567145938392484L;
     private int countryCode;
     private int number;
 

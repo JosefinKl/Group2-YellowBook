@@ -1,4 +1,7 @@
-public class Address {
+import java.io.Serializable;
+
+public class Address  implements Serializable {
+    private static final long serialVersionUID = 6544567145938392484L;
     private String streetName;
     private String streetNumber;
     private String city;
@@ -21,5 +24,15 @@ public class Address {
     }
     public int getZipCode() {
         return zipCode;
+    }
+    // method return a string in a text form
+    @Override
+    public String toString() {
+        return "Address{" +
+                "streetName='" + streetName + '\'' +
+                ", streetNumber='" + streetNumber + '\'' +
+                ", city='" + city + '\'' +
+                ", zipCode=" + zipCode +
+                '}';
     }
 }
