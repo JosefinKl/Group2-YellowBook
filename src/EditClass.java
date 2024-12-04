@@ -77,7 +77,7 @@ public class EditClass {
         }
 
         System.out.println("Uppdaterade uppgifter: " + person);
-        scanner.close();
+
     phonebooklist.add(person);
 
 

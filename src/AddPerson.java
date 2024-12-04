@@ -44,7 +44,7 @@ public class AddPerson {
         System.out.print("Ange ålder: ");
         String ageInput = scanner.nextLine();
         int ageNewPerson = Integer.parseInt(ageInput);
-        scanner.close();
+
 
 
         PersonClass person = new PersonClass(newID, firstNameNewPerson, lastNameNewPerson, telephones, addressNewPerson, ageNewPerson);
