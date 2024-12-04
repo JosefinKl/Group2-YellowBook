@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class EditClass {
     private PersonClass person;
 
-    public EditClass(PersonClass person) {
+    public EditClass(PersonClass person, PhoneBook phoneBook, List<PersonClass> phonebooklist) {
         this.person = person;
     }
-    public void editPerson() {
+    public void editPerson(List<PersonClass> phonebooklist) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Redigerar person: " + person);
 
@@ -77,5 +78,8 @@ public class EditClass {
 
         System.out.println("Uppdaterade uppgifter: " + person);
         scanner.close();
+    phonebooklist.add(person);
+
+
     }
 }

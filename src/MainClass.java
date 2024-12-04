@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class MainClass {
     public static void main(String[] args) {
-        new PhoneBook();
+        PhoneBook phoneBook = new PhoneBook();
+        List<PersonClass> phonebooklist = phoneBook.getPhoneBook();
         LogIn logIn = new LogIn();
-        logIn.StartLogIn();
+        logIn.StartLogIn(phoneBook, phonebooklist);
 
 
 
