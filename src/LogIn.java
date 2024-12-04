@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -16,12 +17,12 @@ public class LogIn {
             if(choice.equalsIgnoreCase("G")){
                 user = "Guest";
                 System.out.println("Guest");
-                Search search = new Search();
+                Search search = new Search(phonebook);
                 while(true) {
                     System.out.println("What to do next? (S - new search, Quit - quit)");
                     String newInput = sc.nextLine();
                     if (newInput.equalsIgnoreCase("S")) {
-                        Search search1 = new Search();
+                        Search search1 = new Search(phonebook);
                     }else if (newInput.equalsIgnoreCase("Quit")) {
                         break;
                     }
@@ -152,7 +153,15 @@ public class LogIn {
                     break;
 
                 case 4:
+                    AddPerson addPerson = new AddPerson();
+                    List<Telephone> phoneNumbers = new ArrayList<>();
+                    phoneNumbers.add(new Telephone(46, 730721234));
+                    addPerson.AddNewPerson(phoneBook,phonebooklist);
 
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
                     //Add add function
                 case 5: // Logout
                     System.out.println("Logging out...");

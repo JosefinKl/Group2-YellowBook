@@ -48,7 +48,12 @@ public class PhoneBook {
                 searchResult.add(person);
             }
         }
-        System.out.println(searchResult);
+        if(searchResult.size() == 0){
+            System.out.println("no match");
+        }
+        else {
+            System.out.println(searchResult);
+        }
         return searchResult;
     }
 
@@ -59,7 +64,12 @@ public class PhoneBook {
                 searchResult.add(person);
             }
         }
-        System.out.println(searchResult);
+        if(searchResult.size() == 0){
+            System.out.println("no match");
+        }
+        else {
+            System.out.println(searchResult);
+        }
         return searchResult;
     }
 
@@ -70,7 +80,13 @@ public class PhoneBook {
                 searchResult.add(person);
             }
         }
-        System.out.println(searchResult);
+        if(searchResult.size() == 0){
+            System.out.println("no match");
+        }
+        else {
+            System.out.println(searchResult);
+        }
+
         return searchResult;
     }
     public PersonClass SearchAndDeleteID(Integer id){
@@ -84,6 +100,16 @@ public class PhoneBook {
         return null;
 
     }
+
+    public List<Integer> whichIDs(){
+        List<Integer> listID = new ArrayList<>();
+        for (PersonClass person : PhoneBookList) {
+            listID.add (person.getId());
+        }
+        return listID;
+    }
+
+
     public List<PersonClass> SearchAll(String name){
         searchResult.clear();
         for (PersonClass person : PhoneBookList) {
