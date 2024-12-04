@@ -1,13 +1,15 @@
  import java.util.List;
 
 public class PersonClass {
+    private Integer id;
     private String firstName;
     private String lastName;
     private List<Telephone> telephone;
     private Address address;
     private int age;
 
-    public PersonClass(String firstName, String lastName, List<Telephone> telephone, Address address, int age) {
+    public PersonClass(Integer id, String firstName, String lastName, List<Telephone> telephone, Address address, int age) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephone = telephone;
@@ -15,7 +17,10 @@ public class PersonClass {
         this.age = age;
     }
 
-    public String getFirstName() {   
+    public Integer getId() {
+        return id;
+    }
+    public String getFirstName() {
         return firstName;
     }
 
@@ -57,7 +62,8 @@ public class PersonClass {
 
     @Override
     public String toString() {
-        return "Name: " + firstName + " " + lastName + "\n" +
+        return  "Id: " + id +
+                "Name: " + firstName + " " + lastName + "\n" +
                "Telephone: " + telephone + "\n" +
                "Address: " + address + "\n" +
                "Age: " + age;

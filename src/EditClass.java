@@ -29,7 +29,7 @@ public class EditClass {
         System.out.print("Vill du ändra telefonnummer? (ja/nej): ");
         String changePhone = scanner.nextLine();
         if (changePhone.equalsIgnoreCase("ja")) {
-            List<PhoneClass> telephones = new ArrayList<>();
+            List<Telephone> telephones = new ArrayList<>();
             while (true) {
                 System.out.print("Ange landskod (eller 'klar' för att avsluta): ");
                 String input = scanner.nextLine();
@@ -41,7 +41,7 @@ public class EditClass {
                 System.out.print("Ange telefonnummer: ");
                 int number = Integer.parseInt(scanner.nextLine());
 
-                telephones.add(new PhoneClass(countryCode, number));
+                telephones.add(new Telephone(countryCode, number));
             }
             person.setTelephone(telephones);
         }
@@ -54,13 +54,17 @@ public class EditClass {
             System.out.print("Ange ny gata: ");
             String street = scanner.nextLine();
 
+            System.out.print("Ange nytt gatunummer: ");
+            String streetnumber= scanner.nextLine();
+
             System.out.print("Ange ny stad: ");
             String city = scanner.nextLine();
 
             System.out.print("Ange nytt postnummer: ");
-            String zipCode = scanner.nextLine();
+            Integer zipCode = Integer.parseInt(scanner.nextLine());
 
-            Address address = new Address(street, city, zipCode);
+            Address address = new Address(street, streetnumber, city, zipCode);
+
             person.setAddress(address);
         }
 
