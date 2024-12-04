@@ -63,7 +63,7 @@ public class PersonClass {
     @Override
     public String toString() {
         return  "Id: " + id +
-                "Name: " + firstName + " " + lastName + "\n" +
+                " Name: " + firstName + " " + lastName + "\n" +
                "Telephone: " + telephone + "\n" +
                "Address: " + address + "\n" +
                "Age: " + age;

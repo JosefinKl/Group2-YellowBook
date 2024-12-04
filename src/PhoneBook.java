@@ -3,6 +3,9 @@ import java.util.List;
 
 public class PhoneBook {
     List<PersonClass> PhoneBookList = new ArrayList<PersonClass>();
+    public List<PersonClass> getPhoneBook() {
+        return PhoneBookList;
+    }
     public PhoneBook() {
         List<Telephone> phoneNumbers = new ArrayList<>();
         phoneNumbers.add(new Telephone(46, 730721234));
@@ -69,6 +72,16 @@ public class PhoneBook {
         }
         System.out.println(searchResult);
         return searchResult;
+    }
+    public PersonClass SearchID (Integer id){
+        searchResult.clear();
+        for (PersonClass person : PhoneBookList) {
+            if(person.getId().equals(id)){
+                return person;
+            }
+        }
+        return null;
+
     }
     public List<PersonClass> SearchAll(String name){
         searchResult.clear();
