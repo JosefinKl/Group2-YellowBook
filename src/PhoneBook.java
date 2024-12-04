@@ -73,10 +73,11 @@ public class PhoneBook {
         System.out.println(searchResult);
         return searchResult;
     }
-    public PersonClass SearchID (Integer id){
+    public PersonClass SearchAndDeleteID(Integer id){
         searchResult.clear();
         for (PersonClass person : PhoneBookList) {
             if(person.getId().equals(id)){
+                PhoneBookList.remove(person);
                 return person;
             }
         }

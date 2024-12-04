@@ -1,13 +1,13 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class LogIn {
     public LogIn() {
+
     }
 
     String user;
-    public void StartLogIn(){
+    public void StartLogIn(PhoneBook phonebook, List<PersonClass> phonebooklist) {
         while(true){
         System.out.println("Do you want to continue as Guest (G) or Admin (A)?");
         Scanner sc = new Scanner(System.in);
@@ -48,7 +48,8 @@ public class LogIn {
                             if (a.isAdminPassword(password)) { //Equals
                                 user = "Admin";
                                 System.out.println("You are logged in.");
-                                adminMenu();
+
+                                adminMenu(phonebook, phonebooklist);
                                 return;
                             } else {
                                 System.out.println("Incorrect Password");
@@ -66,7 +67,7 @@ public class LogIn {
         }
     }
 
-    private void adminMenu() {
+    private void adminMenu(PhoneBook phoneBook, List<PersonClass> phonebooklist) {
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -81,7 +82,7 @@ public class LogIn {
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // Consume newline
-            PhoneBook phoneBook = new PhoneBook();
+
 
             switch (choice) {
                 case 1: // View all profiles
@@ -107,36 +108,51 @@ public class LogIn {
 
                     System.out.println("Write ID for person to edit:");
                     Integer id = sc.nextInt();
-                    PhoneBook pb = new PhoneBook();
-                    PersonClass person = pb.SearchID(id);
-                    EditClass editClass = new EditClass(person);
-                    editClass.editPerson();
+
+                    PersonClass person = phoneBook.SearchAndDeleteID(id);
+                    System.out.println("\nLista över alla personer:");
+
+
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+
+                    EditClass editClass = new EditClass(person, phoneBook, phonebooklist);
+                    editClass.editPerson(phonebooklist);
+
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+
                     break;
 
                 case 3:
-                    System.out.println("\nDelete an existing profile");
+                    System.out.println("\nLista över alla personer:");
+
+
                     for (PersonClass p : phoneBook.getPhoneBook()) {
                         System.out.println(p);
                         System.out.println("-------------------------");
                     }
 
-                    System.out.println("Write ID for person to edit:");
+                    System.out.println("Write ID for person to delete:");
                     Integer id2 = sc.nextInt();
-                    PhoneBook pb2 = new PhoneBook();
-                    PersonClass person2 = pb2.SearchID(id2);
-                    //Add delete function
+
+                    PersonClass person2 = phoneBook.SearchAndDeleteID(id2);
+                    System.out.println("\nLista över alla personer:");
+
+
+                    for (PersonClass p : phoneBook.getPhoneBook()) {
+                        System.out.println(p);
+                        System.out.println("-------------------------");
+                    }
+
+                    break;
 
                 case 4:
-                    System.out.println("\nDelete an existing profile");
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
 
-                    System.out.println("Write ID for person to edit:");
-                    Integer id3 = sc.nextInt();
-                    PhoneBook pb3 = new PhoneBook();
-                    PersonClass person3 = pb3.SearchID(id3);
                     //Add add function
                 case 5: // Logout
                     System.out.println("Logging out...");
