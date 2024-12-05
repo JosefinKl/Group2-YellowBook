@@ -46,7 +46,7 @@ public class PhoneBook {
         PhoneBookList.add(person2);
 
         PhoneBookList.add(person3);
-        savePhoneBookToFile();
+      //  savePhoneBookToFile();
 
     }
 
@@ -142,6 +142,9 @@ public class PhoneBook {
         return integer + "";
     }
 
+
+
+
     // Save the PhoneBookList to a file
     public void savePhoneBookToFile() {
         File file = new File("phonebook.dat");
@@ -201,21 +204,7 @@ public class PhoneBook {
             System.out.println("Error downloading phonebook: " + e.getMessage());
         }
     }
-/*
-    // Method to delete the serialized file (phonebook.dat)
-    public void deletePhoneBookFile() {
-        File file = new File("phonebook.dat"); // The path to the serialized file
-        if (file.exists()) {
-            boolean deleted = file.delete(); // Delete the file
-            if (deleted) {
-                System.out.println("File deleted successfully.");
-            } else {
-                System.out.println("Failed to delete the file.");
-            }
-        } else {
-            System.out.println("File does not exist.");
-        }
-    }*/
+
 }
 
 
