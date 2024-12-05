@@ -76,13 +76,12 @@ public class LogIn {
         while (running) {
             System.out.println("\nAdmin Menu:");
             System.out.println("1. View all profiles");
-
             System.out.println("2. Edit an existing profile");
             System.out.println("3. Delete an existing profile");
             System.out.println("4. Add a profile");
             System.out.println("5. Download a phone book");
-
-            System.out.println("6. Quit");
+            System.out.println("6. Search");
+            System.out.println("7. Quit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // Consume newline
@@ -173,7 +172,10 @@ public class LogIn {
                     phoneBook.downloadPhoneBook();
 
                     break;
-                case 6: // Quit
+                case 6:
+                    Search search1 = new Search(phoneBook);
+                    break;
+                case 7: // Quit
                     System.out.println("Quit");
                     running=false;
                     break;
