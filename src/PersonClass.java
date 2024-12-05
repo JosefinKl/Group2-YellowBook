@@ -1,7 +1,8 @@
  import java.io.Serializable;
+ import java.util.ArrayList;
  import java.util.List;
 
-public class PersonClass implements Serializable{
+public class PersonClass implements Serializable {
     private static final long serialVersionUID = 6544567145938392484L;
     private Integer id;
     private String firstName;
@@ -22,6 +23,7 @@ public class PersonClass implements Serializable{
     public Integer getId() {
         return id;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -64,10 +66,11 @@ public class PersonClass implements Serializable{
 
     @Override
     public String toString() {
-        return  "Id: " + id +
+        return "Id: " + id +
                 " Name: " + firstName + " " + lastName + "\n" +
-               "Telephone: " + telephone + "\n" +
-               "Address: " + address + "\n" +
-               "Age: " + age;
+                "Telephone: " + telephone + "\n" +
+                "Address: " + address + "\n" +
+                "Age: " + age;
     }
+
 }

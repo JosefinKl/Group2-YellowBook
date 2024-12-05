@@ -25,7 +25,13 @@ public class Address  implements Serializable {
     public int getZipCode() {
         return zipCode;
     }
+    public String toDataString() {
+        return streetName + "," + streetNumber + "," + city + "," + zipCode;
+    }
+
+
     // method return a string in a text form
+
     @Override
     public String toString() {
         return "Address{" +

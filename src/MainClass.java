@@ -7,6 +7,7 @@ public class MainClass {
         PhoneBook phoneBook = new PhoneBook();
 
         phoneBook.loadPhoneBookFromFile();
+
         List<PersonClass> phonebooklist = phoneBook.getPhoneBook();
         LogIn logIn = new LogIn();
         logIn.StartLogIn(phoneBook, phonebooklist);
