@@ -83,109 +83,112 @@ public class LogIn {
             System.out.println("6. Search");
             System.out.println("7. Quit");
             System.out.print("Enter your choice: ");
-            int choice = sc.nextInt();
-            sc.nextLine(); // Consume newline
+            if (sc.hasNextInt()) {
+                int choice = sc.nextInt();
 
 
-            switch (choice) {
-                case 1: // View all profiles
-                    System.out.println("List of profiles:");
-                    // Print out the entire list
-                    System.out.println("\nLista över alla personer:");
+
+                switch (choice) {
+                    case 1: // View all profiles
+                        System.out.println("List of profiles:");
+                        // Print out the entire list
+                        System.out.println("\nLista över alla personer:");
 
 
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
-                    break;
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+                        }
+                        break;
 
-                case 2: // Edit an existing profile
-                    System.out.println("\nLista över alla personer:");
-
-
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
-
-                    System.out.println("Write ID for person to edit:");
-                    Integer id = sc.nextInt();
-
-                    PersonClass person = phoneBook.SearchAndDeleteID(id);
-                    System.out.println("\nLista över alla personer:");
+                    case 2: // Edit an existing profile
+                        System.out.println("\nLista över alla personer:");
 
 
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+                        }
 
-                    EditClass editClass = new EditClass(person, phoneBook, phonebooklist);
-                    editClass.editPerson(phonebooklist);
-                    phoneBook.savePhoneBookToFile();
+                        System.out.println("Write ID for person to edit:");
+                        Integer id = sc.nextInt();
 
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
-
-                    break;
-
-                case 3:
-                    System.out.println("\nLista över alla personer:");
+                        PersonClass person = phoneBook.SearchAndDeleteID(id);
+                        System.out.println("\nLista över alla personer:");
 
 
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+                        }
 
-                    System.out.println("Write ID for person to delete:");
-                    Integer id2 = sc.nextInt();
+                        EditClass editClass = new EditClass(person, phoneBook, phonebooklist);
+                        editClass.editPerson(phonebooklist);
+                        phoneBook.savePhoneBookToFile();
 
-                    PersonClass person2 = phoneBook.SearchAndDeleteID(id2);
-                    System.out.println("\nLista över alla personer:");
-                    phoneBook.savePhoneBookToFile();
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+                        }
 
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
+                        break;
 
-                    }
+                    case 3:
+                        System.out.println("\nLista över alla personer:");
 
-                    break;
 
-                case 4:
-                    AddPerson addPerson = new AddPerson();
-                    List<Telephone> phoneNumbers = new ArrayList<>();
-                    phoneNumbers.add(new Telephone(46, 730721234));
-                    addPerson.AddNewPerson(phoneBook,phonebooklist);
-                    phoneBook.savePhoneBookToFile();
-                    for (PersonClass p : phoneBook.getPhoneBook()) {
-                        System.out.println(p);
-                        System.out.println("-------------------------");
-                    }
-                    break;
-                case 5:
-                    System.out.println("Downloading phonebook...");
-                    phoneBook.downloadPhoneBook();
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+                        }
 
-                    break;
-                case 6:
-                    Search search1 = new Search(phoneBook);
-                    break;
-                case 7: // Quit
-                    System.out.println("Quit");
-                    running=false;
-                    break;
+                        System.out.println("Write ID for person to delete:");
+                        Integer id2 = sc.nextInt();
 
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                        PersonClass person2 = phoneBook.SearchAndDeleteID(id2);
+                        System.out.println("\nLista över alla personer:");
+                        phoneBook.savePhoneBookToFile();
+
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+
+                        }
+
+                        break;
+
+                    case 4:
+                        AddPerson addPerson = new AddPerson();
+                        List<Telephone> phoneNumbers = new ArrayList<>();
+                        phoneNumbers.add(new Telephone(46, 730721234));
+                        addPerson.AddNewPerson(phoneBook, phonebooklist);
+                        phoneBook.savePhoneBookToFile();
+                        for (PersonClass p : phoneBook.getPhoneBook()) {
+                            System.out.println(p);
+                            System.out.println("-------------------------");
+                        }
+                        break;
+                    case 5:
+                        System.out.println("Downloading phonebook...");
+                        phoneBook.downloadPhoneBook();
+
+                        break;
+                    case 6:
+                        Search search1 = new Search(phoneBook);
+                        break;
+                    case 7: // Quit
+                        System.out.println("Quit");
+                        running = false;
+                        break;
+
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } else {
+                System.out.println("Invalid Choice");
+                sc.nextLine(); // Consume newline
+
             }
         }
     }
-
-
-
 }
