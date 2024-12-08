@@ -5,7 +5,7 @@ import java.nio.file.*;
 import java.util.Scanner;
 import java.io.IOException;
 
-public class PhoneBook {
+public class PhoneBook implements SearchInPhoneBook {
 
 
     List<PersonClass> PhoneBookList = new ArrayList<PersonClass>();
